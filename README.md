@@ -3,13 +3,61 @@
 msToken、ttwid、webid、a-bogus和x-bogus算法破解
 
 ## 注意
-源码仅作为和大家一起**学习Python**使用，你可以免费: 拷贝、分发和派生当前源码。
+源码仅作为和大家一起**学习**使用，你可以免费: 拷贝、分发和派生当前源码。
 
 但你用于*商业目的*及其他*恶意用途*，作者也不会管你，耗子尾汁
 
 > 项目普及技术：JS逆向（调用JS文件） 
 
 > 最好使用代理IP爬取，最近发现Tiktok屏蔽香港的IP，代理国外IP最好用美国的
+
+## 支持的语言
+
+本项目现在支持 **Python** 和 **Node.js** 两种实现方式。
+
+### Python 版本
+- 使用 `py_mini_racer` 执行 JavaScript 代码
+- 文件：`douyin_crawler.py`, `tiktok_crawler.py`
+
+### Node.js 版本（推荐）
+- 直接使用 Node.js 的 `vm` 模块执行 JavaScript 代码，无需额外依赖
+- 文件：`douyin_crawler.js`, `tiktok_crawler.js`
+- 解决了 macOS arm64 上 `py_mini_racer` 的兼容性问题
+
+## Node.js 使用方法
+
+### 安装依赖
+```bash
+npm install
+```
+
+### 运行抖音爬虫
+```bash
+npm run douyin
+# 或
+node douyin_crawler.js
+```
+
+### 运行 TikTok 爬虫
+```bash
+npm run tiktok
+# 或
+node tiktok_crawler.js
+```
+
+### 在代码中使用
+```javascript
+import DyComment from './douyin_crawler.js';
+import TiktokComment from './tiktok_crawler.js';
+
+// 抖音
+const dyComment = new DyComment();
+await dyComment.getCommentList('https://www.douyin.com/discover?modal_id=7258913772092296485');
+
+// TikTok
+const tiktokComment = new TiktokComment();
+await tiktokComment.getCommentList('https://www.tiktok.com/@username/video/1234567890');
+```
 
 ## x-bogus
 x-bogus是一种防数据包伪造的一个参数， 又称为x伪造，主要用于反爬虫，这个是某节公司下面基础服务，这个反爬虫机制几乎用在了它所有的产品中，不过，只要是能正常使用，这些东西都是透明的，x-bogus生成算法。

@@ -1,0 +1,23 @@
+{
+  "name": "tiktok-douyin-crawler",
+  "version": "1.0.0",
+  "description": "TikTok and Douyin comment crawler using Node.js",
+  "main": "douyin_crawler.js",
+  "type": "module",
+  "scripts": {
+    "douyin": "node douyin_crawler.js",
+    "tiktok": "node tiktok_crawler.js"
+  },
+  "keywords": [
+    "tiktok",
+    "douyin",
+    "crawler",
+    "scraper"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^1.6.0"
+  }
+}
+
